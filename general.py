@@ -79,7 +79,7 @@ def generate_edge_cases(sizes: typing.List[int],
         datasets[name] = defaultdict(list)
         for size in sizes:
             if i % quiet == 0:
-                spinner_i = (i % (4*quiet)) // quiet
+                spinner_i = (i % (4 * quiet)) // quiet
                 if spinner_i == 0:
                     spinner = '/'
                 elif spinner_i == 1:
@@ -122,7 +122,8 @@ def bench(f, datasets: typing.Dict[int, typing.List[typing.List[int]]], quiet=1)
                 s.append(swps)
                 c.append(chks)
             except RecursionError:
-                print(f'RecursionError on size {i}, dataset {j + 1} of {len(dss)}, dataset total {o} of {len(dss) * len(datasets)}, skipping...')
+                print(
+                    f'RecursionError on size {i}, dataset {j + 1} of {len(dss)}, dataset total {o} of {len(dss) * len(datasets)}, skipping...')
         print('\r', end='', flush=True)
         print(f'processing data (size {i}, dataset {o}/{len(dss) * len(datasets)})...'.ljust(100), end='', flush=True)
         avg_swps = sum(s) / len(s) if len(s) > 0 else 0

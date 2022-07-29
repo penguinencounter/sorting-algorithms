@@ -10,7 +10,7 @@ def selection(a: list):
     n = len(data)
     for i in range(n):
         m = i
-        for j in range(i+1, n):
+        for j in range(i + 1, n):
             chks += 1
             if data[m] >= data[j]:
                 m = j
@@ -27,10 +27,10 @@ def bubble(a: list):
     n = len(data)
     while 1:
         swapped = False
-        for i in range(n-1):
+        for i in range(n - 1):
             chks += 1
-            if data[i] > data[i+1]:
-                general.swp(data, i, i+1)
+            if data[i] > data[i + 1]:
+                general.swp(data, i, i + 1)
                 swapped = True
                 swps += 1
         if not swapped: break
@@ -48,7 +48,7 @@ def insertion(a: list):
         v = data[x]
         j = x
         chks += 1
-        while data[j-1] > v and j > 0:
+        while data[j - 1] > v and j > 0:
             j -= 1
             chks += 1
         swps += 1
@@ -61,7 +61,7 @@ if __name__ == '__main__':
     trials = int(input("how many trials? "))
     reps = int(input("how many reps? "))
     seed = input("seed or default? ")
-    if seed.strip() == '' :
+    if seed.strip() == '':
         seed = 1234567890
     else:
         seed = int(seed)
