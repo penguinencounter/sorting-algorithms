@@ -40,7 +40,8 @@ def generate_testing_data(sizes: typing.List[int], reps: int = 1, SEED: int = 12
             p += 1
             if p % quiet == 0:
                 print('\r', end='', flush=True)
-                print(f'generating data for size {i}, rep {str(k+1).ljust(len(str(reps)))} of {reps}...'.ljust(80), end='', flush=True)
+                print(f'generating data for size {i}, rep {str(k + 1).ljust(len(str(reps)))} of {reps}...'.ljust(80),
+                      end='', flush=True)
             l = list(range(i))
             random.shuffle(l)
             datasets[i].append(l)
@@ -65,7 +66,9 @@ def bench(f, datasets: typing.Dict[int, typing.List[typing.List[int]]], quiet=1)
             o += 1
             if o % quiet == 0:
                 print('\r', end='', flush=True)
-                print(f'running benchmark with size {i}, dataset {j+1} of {len(dss)}, dataset total {o} of {len(dss)*len(datasets)}...'.ljust(100), end='', flush=True)
+                print(
+                    f'running benchmark with size {i}, dataset {j + 1} of {len(dss)}, dataset total {o} of {len(dss) * len(datasets)}...'.ljust(
+                        100), end='', flush=True)
             result, swps, chks = f(ds)
             assert result == sorted(ds)
             s.append(swps)
